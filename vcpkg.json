@@ -1,0 +1,8 @@
+{
+  "dependencies": [
+    "cppzmq",
+    "nlohmann-json",
+    "fmt",
+    "spdlog"
+  ]
+}

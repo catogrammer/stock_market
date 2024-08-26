@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Crypto Asset Order Form</title>
+    <!-- Link to the external CSS file -->
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<div class="container">
+    <h2>Order Form for Buying Crypto Asset</h2>
+    <form action="/submit-order" method="post">
+        <div class="form-group">
+            <label for="crypto">Crypto Asset:</label>
+            <select id="crypto" name="crypto" required>
+                <option value="bitcoin">Bitcoin (BTC)</option>
+                <option value="ethereum">Ethereum (ETH)</option>
+                <option value="litecoin">Litecoin (LTC)</option>
+                <!-- Add more crypto options as needed -->
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label for="quantity">Quantity:</label>
+            <input type="number" id="quantity" name="quantity" step="0.0001" min="0" required>
+        </div>
+
+        <div class="form-group">
+            <label for="orderType">Order Type:</label>
+            <select id="orderType" name="orderType" required>
+                <option value="market">Market Order</option>
+                <option value="limit">Limit Order</option>
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label for="price">Limit Price (if applicable):</label>
+            <input type="number" id="price" name="price" step="0.01" min="0" placeholder="Leave blank for market orders">
+        </div>
+
+        <div class="form-group">
+            <label for="paymentMethod">Payment Method:</label>
+            <select id="paymentMethod" name="paymentMethod" required>
+                <option value="creditCard">Credit Card</option>
+                <option value="bankTransfer">Bank Transfer</option>
+                <option value="cryptoWallet">Crypto Wallet</option>
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label for="walletAddress">Your Crypto Wallet Address (optional):</label>
+            <input type="text" id="walletAddress" name="walletAddress" placeholder="Your crypto wallet address">
+        </div>
+
+        <button type="submit">Place Order</button>
+    </form>
+</div>
+
+<!-- Link to external JavaScript files -->
+<script src="js/utils.js"></script>
+<script src="js/validation.js"></script>
+<script src="js/handling.js"></script>
+<script>
+    // Initialize the form handler
+    document.addEventListener('DOMContentLoaded', function () {
+        const orderForm = document.querySelector('form');
+        orderForm.addEventListener('submit', handleFormSubmit);
+    });
+</script>
+</body>
+</html>
